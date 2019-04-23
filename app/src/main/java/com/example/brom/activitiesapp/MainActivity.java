@@ -1,5 +1,6 @@
 package com.example.brom.activitiesapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listData=new ArrayList<>(Arrays.asList(mountainNames));
-
+        //Här är foreachen som tar fram de olika bergen.
         for (int i=0; i<3; i++)
         {
             MountainData.add(new Mountain(mountainNames[i], mountainLocations[i],mountainHeights[i]));
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                         + mountainHeights [i] + " ";*/
                String test= MountainData.get(i).info();
                 Toast.makeText(MainActivity.this, test, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent (getApplicationContext(),MountainDetailsActivity.class);
+                startActivity(intent);
             }
         });
 

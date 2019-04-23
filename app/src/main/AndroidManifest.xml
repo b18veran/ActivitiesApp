@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MountainDetailsActivity"
+            android:label = "MountainDetailsActivity"
+            android:parentActivityName=".MainActivity"
+            ></activity>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.brom.activitiesapp.MainActivity"
+                ></meta-data>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
