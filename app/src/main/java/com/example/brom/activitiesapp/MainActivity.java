@@ -27,7 +27,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listData=new ArrayList<>(Arrays.asList(mountainNames));
 
-        MountainData.add(new Mountain(mountainNames[0], mountainLocations[0],mountainHeights[0]));
+        for (int i=0; i<3; i++)
+        {
+            MountainData.add(new Mountain(mountainNames[i], mountainLocations[i],mountainHeights[i]));
+
+        }
         MountainAdapter= new ArrayAdapter<Mountain>(this, R.layout. list_item_textview, R.id.list_item_textview, MountainData);
 
 
