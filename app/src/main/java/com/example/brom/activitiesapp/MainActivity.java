@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
     private String[] mountainLocations = {"Alps","Alps","Alaska"};
     private int[] mountainHeights ={4478,4808,6190};
+    private String[] Extra_Message;
+    public static final String EXTRA_MESSAGE = "Test";
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
     private ArrayList<String>listData;
     private ArrayAdapter <String> adapter;
@@ -48,9 +51,13 @@ public class MainActivity extends AppCompatActivity {
                /* String test = " "       + mountainNames[i] + " "
                         + mountainLocations [i] +" "
                         + mountainHeights [i] + " ";*/
-               String test= MountainData.get(i).info();
-                Toast.makeText(MainActivity.this, test, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(MainActivity.this, test, Toast.LENGTH_SHORT).show();
+                String test= MountainData.get(i).getName();
+                String test1= MountainData.get(i).getLocation();
+                int test2= MountainData.get(i).getHeight();
                 Intent intent = new Intent (getApplicationContext(),MountainDetailsActivity.class);
+                String allt = MountainData.get(i).info();
+                intent.putExtra(EXTRA_MESSAGE,allt);
                 startActivity(intent);
             }
         });
